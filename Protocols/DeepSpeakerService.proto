@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+service DeepSpeakerService {
+ rpc GetEmbedding (stream EmbeddingRequest) returns (EmbeddingResponse);
+}
+
+message EmbeddingRequest {
+  bytes WavAudioChunk = 1;
+}
+
+message EmbeddingResponse {
+  repeated float Embedding = 1;
+}
